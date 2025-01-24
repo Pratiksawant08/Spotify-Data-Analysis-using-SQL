@@ -131,6 +131,7 @@ After the data is inserted, various SQL queries can be written to explore and an
     ```
 ### Advanced Level
 ### for this I put SQL file which conatain all quetion queries done 
+link of file-https://github.com/Pratiksawant08/Spotify-Data-Analysis-using-SQL/blob/main/Advanced%20Query_spotify.sql
 1. Find the top 3 most-viewed tracks for each artist using window functions.
 2. Write a query to find tracks where the liveness score is above the average.
 3. **Use a `WITH` clause to calculate the difference between the highest and lowest energy values for tracks in each album.**
