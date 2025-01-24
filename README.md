@@ -74,6 +74,28 @@ In advanced stages, the focus shifts to improving query performance. Some optimi
 3. Get the total number of comments for tracks where `licensed = TRUE`.
 4. Find all tracks that belong to the album type `single`.
 5. Count the total number of tracks by each artist.
+   ```sql
+--1.Retrieve the names of all tracks that have more than 1 billion streams.--
+
+select Track , stream from spotify
+where stream>1000000000;
+
+--2.List all albums along with their respective artists.--
+select artist,album from spotify;
+
+--3.Get the total number of comments for tracks where licensed = TRUE.--
+select sum(comments) as total_comments from spotify
+where licensed = 'TRUE';
+
+--4.Find all tracks that belong to the album type single.--
+select track from spotify
+where album_type = 'single';
+
+--5.Count the total number of tracks by each artist--
+select artist ,count(track) as total_track  from spotify
+group by artist
+order by 2 asc;
+```
 
 ### Medium Level
 1. Calculate the average danceability of tracks in each album.
@@ -86,23 +108,7 @@ In advanced stages, the focus shifts to improving query performance. Some optimi
 1. Find the top 3 most-viewed tracks for each artist using window functions.
 2. Write a query to find tracks where the liveness score is above the average.
 3. **Use a `WITH` clause to calculate the difference between the highest and lowest energy values for tracks in each album.**
-```sql
-WITH cte
-AS
-(SELECT 
-	album,
-	MAX(energy) as highest_energy,
-	MIN(energy) as lowest_energery
-FROM spotify
-GROUP BY 1
-)
-SELECT 
-	album,
-	highest_energy - lowest_energery as energy_diff
-FROM cte
-ORDER BY 2 DESC
-```
-   
+_energy - lowest_energery as energy_diff
 5. Find tracks where the energy-to-liveness ratio is greater than 1.2.
 6. Calculate the cumulative sum of likes for tracks ordered by the number of views, using window functions.
 
