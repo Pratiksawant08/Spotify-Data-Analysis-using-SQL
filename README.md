@@ -76,7 +76,7 @@ In advanced stages, the focus shifts to improving query performance. Some optimi
   ```
 2. List all albums along with their respective artists.
  ```sql
-  select artist,album from spotify;
+    select artist,album from spotify;
  ```
 3. Get the total number of comments for tracks where `licensed = TRUE`.
    ```sql
